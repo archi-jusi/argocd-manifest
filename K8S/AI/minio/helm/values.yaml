@@ -14,3 +14,7 @@ minio:
     - name: ebooks
       policy: none
       purge: false
+  resources:
+  requests:
+    memory: 512Mi
+    cpu: 250m
