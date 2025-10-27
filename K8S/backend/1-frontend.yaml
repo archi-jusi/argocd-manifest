@@ -2,22 +2,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx
-  namespace: frontend
+  name: mysql
+  namespace: backend
   labels:
-    app: nginx
+    app: mysql
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nginx
+      app: mysql
   template:
     metadata:
       labels:
-        app: nginx
+        app: mysqk
     spec:
       containers:
-        - name: nginx
-          image: nginx:latest
+        - name: mysql
+          image: mysql:5.7
           ports:
-            - containerPort: 80
+            - containerPort: 3306
