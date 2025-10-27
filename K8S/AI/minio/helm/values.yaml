@@ -1,12 +1,17 @@
-existingSecret: minio-secret
+mode: standalone          # single-node mode
+replicas: 1               # only 1 pod
+existingSecret: minio-secret  # your secret for credentials
+
 persistence:
   enabled: true
-  size: 10Gi
+  size: 10Gi              # adjust as needed
+
 service:
   type: NodePort
   nodePorts:
-    api: 30090
-    console: 30091
+    api: 30090            # S3 API endpoint
+    console: 30091        # MinIO web console
+
 buckets:
   - name: ebooks
     policy: none
