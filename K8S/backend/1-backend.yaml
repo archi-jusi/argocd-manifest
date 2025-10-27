@@ -2,19 +2,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql
+  name: backend
   namespace: backend
   labels:
-    app: mysql
+    app: backend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mysql
+      app: backend
   template:
     metadata:
       labels:
-        app: mysqk
+        app: backend
     spec:
       containers:
         - name: mysql
