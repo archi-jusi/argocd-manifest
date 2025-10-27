@@ -1,0 +1,13 @@
+existingSecret: minio-secret
+persistence:
+  enabled: true
+  size: 10Gi
+service:
+  type: NodePort
+  nodePorts:
+    api: 30090
+    console: 30091
+buckets:
+  - name: ebooks
+    policy: none
+    purge: false
