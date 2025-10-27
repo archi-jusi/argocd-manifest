@@ -1,10 +1,22 @@
 mode: standalone          # single-node mode
-replicas: 1               # only 1 pod
+
 existingSecret: minio-secret  # your secret for credentials
+
+# Number of drives attached to a node
+drivesPerNode: 1
+
+replicas: 1               # only 1 pod
+# Number of expanded MinIO clusters
+pools: 1
 
 persistence:
   enabled: true
   size: 10Gi              # adjust as needed
+
+# Resource request
+resources:
+  requests:
+    memory: 1Gi
 
 service:
   type: NodePort
