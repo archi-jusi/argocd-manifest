@@ -1,0 +1,213 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{},"finalizers":["resources-finalizer.argocd.argoproj.io"],"name":"minio","namespace":"argocd"},"spec":{"destination":{"namespace":"minio","server":"https://kubernetes.default.svc"},"project":"default","source":{"helm":{"releaseName":"minio","valueFiles":["values.yaml"]},"path":"K8S/AI/minio/helm","repoURL":"https://github.com/archi-jusi/argocd-manifest.git","targetRevision":"main"},"syncPolicy":{"automated":{"allowEmpty":false,"prune":true,"selfHeal":true},"syncOptions":["Validate=true","CreateNamespace=true","PrunePropagationPolicy=foreground","PruneLast=true"]}}}
+  creationTimestamp: "2025-10-27T17:30:42Z"
+  generation: 12
+  name: minio
+  namespace: argocd
+  resourceVersion: "112632"
+  uid: 9668a595-c9d9-4870-a520-06d6263d16e2
+operation:
+  initiatedBy:
+    automated: true
+  retry:
+    limit: 5
+  sync:
+    prune: true
+    revision: 066b7c933f13a3535e932556c290de538d44ad48
+    syncOptions:
+    - Validate=true
+    - CreateNamespace=true
+    - PrunePropagationPolicy=foreground
+    - PruneLast=true
+spec:
+  destination:
+    namespace: minio
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    helm:
+      releaseName: minio
+      valueFiles:
+      - values.yaml
+    path: K8S/AI/minio/helm
+    repoURL: https://github.com/archi-jusi/argocd-manifest.git
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - Validate=true
+    - CreateNamespace=true
+    - PrunePropagationPolicy=foreground
+    - PruneLast=true
+status:
+  controllerNamespace: argocd
+  health:
+    lastTransitionTime: "2025-10-27T17:30:43Z"
+    status: Progressing
+  operationState:
+    message: waiting for healthy state of apps/StatefulSet/minio
+    operation:
+      initiatedBy:
+        automated: true
+      retry:
+        limit: 5
+      sync:
+        prune: true
+        revision: 066b7c933f13a3535e932556c290de538d44ad48
+        syncOptions:
+        - Validate=true
+        - CreateNamespace=true
+        - PrunePropagationPolicy=foreground
+        - PruneLast=true
+    phase: Running
+    startedAt: "2025-10-27T17:30:43Z"
+    syncResult:
+      resources:
+      - group: ""
+        hookPhase: Running
+        kind: Namespace
+        message: namespace/minio created
+        name: minio
+        namespace: ""
+        status: Synced
+        syncPhase: PreSync
+        version: v1
+      - group: ""
+        hookPhase: Succeeded
+        kind: ServiceAccount
+        message: serviceaccount/minio-sa created
+        name: minio-sa
+        namespace: minio
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Succeeded
+        kind: Secret
+        message: secret/minio created
+        name: minio
+        namespace: minio
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Succeeded
+        kind: ConfigMap
+        message: configmap/minio created
+        name: minio
+        namespace: minio
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Succeeded
+        kind: Service
+        message: service/minio-svc created
+        name: minio-svc
+        namespace: minio
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Succeeded
+        kind: Service
+        message: service/minio created
+        name: minio
+        namespace: minio
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Succeeded
+        kind: Service
+        message: service/minio-console created
+        name: minio-console
+        namespace: minio
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apps
+        hookPhase: Running
+        images:
+        - quay.io/minio/minio:RELEASE.2023-09-30T07-02-29Z
+        kind: StatefulSet
+        message: statefulset.apps/minio created
+        name: minio
+        namespace: minio
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      revision: 066b7c933f13a3535e932556c290de538d44ad48
+      source:
+        helm:
+          releaseName: minio
+          valueFiles:
+          - values.yaml
+        path: K8S/AI/minio/helm
+        repoURL: https://github.com/archi-jusi/argocd-manifest.git
+        targetRevision: main
+  reconciledAt: "2025-10-27T17:37:58Z"
+  resourceHealthSource: appTree
+  resources:
+  - kind: ConfigMap
+    name: minio
+    namespace: minio
+    status: Synced
+    version: v1
+  - kind: Secret
+    name: minio
+    namespace: minio
+    status: Synced
+    version: v1
+  - kind: Service
+    name: minio
+    namespace: minio
+    status: Synced
+    version: v1
+  - kind: Service
+    name: minio-console
+    namespace: minio
+    status: Synced
+    version: v1
+  - kind: Service
+    name: minio-svc
+    namespace: minio
+    status: Synced
+    version: v1
+  - kind: ServiceAccount
+    name: minio-sa
+    namespace: minio
+    status: Synced
+    version: v1
+  - group: apps
+    kind: StatefulSet
+    name: minio
+    namespace: minio
+    status: Synced
+    version: v1
+  sourceHydrator: {}
+  sourceType: Helm
+  summary:
+    images:
+    - quay.io/minio/minio:RELEASE.2023-09-30T07-02-29Z
+  sync:
+    comparedTo:
+      destination:
+        namespace: minio
+        server: https://kubernetes.default.svc
+      source:
+        helm:
+          releaseName: minio
+          valueFiles:
+          - values.yaml
+        path: K8S/AI/minio/helm
+        repoURL: https://github.com/archi-jusi/argocd-manifest.git
+        targetRevision: main
+    revision: 066b7c933f13a3535e932556c290de538d44ad48
+    status: Synced
