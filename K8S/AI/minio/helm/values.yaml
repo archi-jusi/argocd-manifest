@@ -3,10 +3,6 @@ minio:
   replicas: 1
   existingSecret: minio-secret
 
-  users:
-    - secretRef: minio-app-secret
-      policy: readwrite
-
   persistence:
     enabled: true
     size: 5Gi
