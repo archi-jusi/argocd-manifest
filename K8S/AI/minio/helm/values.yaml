@@ -28,8 +28,7 @@ minio:
       cpu: 500m
 
   users:
-    - ai-user:
-      existingSecret: minio-app-secret
+    - existingSecret: minio-app-secret
       accessKey: apps-ai #externalSecret
       existingSecretKey: secretKey
       policy: readwrite
