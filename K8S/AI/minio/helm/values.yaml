@@ -38,11 +38,7 @@ minio:
         - ebooks
         - dataset
   
-  # svcaccts:
-  #   - user: apps-ai
-  #     existingSecret: minio-app-secret
-  #     existingSecretKey: accessKey
-  #     # optional: buckets to access
-  #     buckets:
-  #       - ebooks
-  #       - dataset
+  svcaccts:
+    - user: apps-ai
+      accessKey: "ofnzeroifezrooOIOICFNE"
+      secretKey: "IOOFEOFNCazidzec2cezOLFESZSZFEVE"
