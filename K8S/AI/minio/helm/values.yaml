@@ -26,3 +26,13 @@ minio:
     limits:
       memory: 512Mi
       cpu: 500m
+
+  users:
+    ai-user:
+      existingSecret: minio-app-secret
+      # The policy (permissions) for this user
+      policy: readwrite
+      # optional: buckets to access
+      buckets:
+        - ebooks
+        - dataset
