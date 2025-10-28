@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: minio-app-secret
+  namespace: {{ .Release.Namespace }}
+type: Opaque
+stringData:
+  accessKey: apps_user
+  secretKey: {{ randAlphaNum 20 | quote }}
