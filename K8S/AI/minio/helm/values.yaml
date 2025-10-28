@@ -16,6 +16,9 @@ minio:
     - name: ebooks
       policy: none
       purge: false
+    - name: dataset
+      policy: none
+      purge: false
   resources:
     requests:
       memory: 512Mi
