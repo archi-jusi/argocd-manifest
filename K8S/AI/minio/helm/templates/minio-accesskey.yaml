@@ -5,5 +5,5 @@ metadata:
   namespace: {{ .Release.Namespace }}
 type: Opaque
 stringData:
-  accessKey: apps_user
+  accessKey: {{ randAlphaNum 10 | quote }}
   secretKey: {{ randAlphaNum 20 | quote }}
