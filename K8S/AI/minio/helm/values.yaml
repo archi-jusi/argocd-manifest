@@ -39,8 +39,8 @@ minio:
   
   svcaccts:
     - user: apps-ai
-      accessKey: "ofnzeroifezrooOIOICFNE"
-      secretKey: "IOOFEOFNCazidzec2cezOLFESZSZFEVE"
+      # accessKey: "ofnzeroifezrooOIOICFNE"
+      # secretKey: "IOOFEOFNCazidzec2cezOLFESZSZFEVE"
       policy:
         statements:
           - resources:
