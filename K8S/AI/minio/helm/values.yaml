@@ -30,7 +30,7 @@ minio:
   users:
     - ai-user:
       existingSecret: minio-app-secret
-      accessKey: accessKey #externalSecret
+      accessKey: apps-ai #externalSecret
       existingSecretKey: secretKey
       policy: readwrite
       # optional: buckets to access
