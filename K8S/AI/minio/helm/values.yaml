@@ -28,7 +28,7 @@ minio:
       cpu: 500m
 
   users:
-    ai-user:
+    - ai-user:
       existingSecret: minio-app-secret
       # The policy (permissions) for this user
       policy: readwrite
