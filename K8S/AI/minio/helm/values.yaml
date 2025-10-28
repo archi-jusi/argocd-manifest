@@ -2,6 +2,11 @@ minio:
   mode: standalone
   replicas: 1
   existingSecret: minio-secret
+
+  users:
+    - existingSecret: minio-app-secret
+      policy: readwrite
+
   persistence:
     enabled: true
     size: 5Gi
