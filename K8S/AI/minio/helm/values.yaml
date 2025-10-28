@@ -4,7 +4,7 @@ minio:
   existingSecret: minio-secret
 
   users:
-    - existingSecret: minio-app-secret
+    - secretRef: minio-app-secret
       policy: readwrite
 
   persistence:
