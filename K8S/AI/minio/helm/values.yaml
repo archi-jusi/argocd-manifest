@@ -41,3 +41,10 @@ minio:
     - user: apps-ai
       accessKey: "ofnzeroifezrooOIOICFNE"
       secretKey: "IOOFEOFNCazidzec2cezOLFESZSZFEVE"
+      policy:
+        statements:
+          - resources:
+              - 'arn:aws:s3:::ebooks/*'
+              - 'arn:aws:s3:::dataset/*'
+            actions:
+              - "s3:*"
