@@ -29,7 +29,6 @@ minio:
 
   users:
     - ai-user:
-      existingSecret: minio-app-secret
       generate: true
       # The policy (permissions) for this user
       policy: readwrite
