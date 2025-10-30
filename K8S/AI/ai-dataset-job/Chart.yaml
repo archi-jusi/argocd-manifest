@@ -1,0 +1,6 @@
+apiVersion: v2
+name: ai-dataset-job
+description: Job to generate AI datasets from MinIO
+type: application
+version: 0.1.0
+appVersion: "1.0"
