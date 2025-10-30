@@ -11,7 +11,18 @@ resources:
     memory: 512Mi
 
 env:
-  MINIO_ENDPOINT: "http://localhost:32000"
+  - name: MINIO_ENDPOINT
+    value: "http://localhost:32000"
+  - name: MINIO_ACCESS_KEY
+    valueFrom:
+      secretKeyRef:
+        name: minio-app-secret
+        key: accessKey
+  - name: MINIO_SECRET_KEY
+    valueFrom:
+      secretKeyRef:
+        name: minio-app-secret
+        key: secretKey
 
 restartPolicy: Never
 backoffLimit: 2
