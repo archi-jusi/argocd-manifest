@@ -17,13 +17,13 @@ spec:
             - name: MINIO_ACCESS_KEY
               valueFrom:
                 secretKeyRef:
-                  name: minio-app-secret
-                  key: accessKey
+                  name: {{ .Values.env.MINIO_SECRET_NAME }}
+                  key: {{ .Values.env.MINIO_ACCESS_KEY_NAME }}
             - name: MINIO_SECRET_KEY
               valueFrom:
                 secretKeyRef:
-                  name: minio-app-secret
-                  key: secretKey
+                  name: {{ .Values.env.MINIO_SECRET_NAME }}
+                  key: {{ .Values.env.MINIO_SECRET_KEY_NAME }}
           resources:
             requests:
               cpu: {{ .Values.resources.requests.cpu }}
