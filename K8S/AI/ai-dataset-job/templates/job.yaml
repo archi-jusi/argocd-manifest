@@ -13,17 +13,17 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           env:
             - name: MINIO_ENDPOINT
-              value: "{{ index .Values.env "MINIO_ENDPOINT" }}"
+              value: "{{ .Values.env.MINIO_ENDPOINT }}"
             - name: MINIO_ACCESS_KEY
               valueFrom:
                 secretKeyRef:
-                  name: {{ index .Values.env "MINIO_SECRET_NAME" }}
-                  key: {{ index .Values.env "MINIO_ACCESS_KEY_NAME" }}
+                  name: "{{ .Values.env.MINIO_SECRET_NAME }}"
+                  key: "{{ .Values.env.MINIO_ACCESS_KEY_NAME }}"
             - name: MINIO_SECRET_KEY
               valueFrom:
                 secretKeyRef:
-                  name: {{ index .Values.env "MINIO_SECRET_NAME" }}
-                  key: {{ index .Values.env "MINIO_SECRET_KEY_NAME" }}
+                  name: "{{ .Values.env.MINIO_SECRET_NAME }}"
+                  key: "{{ .Values.env.MINIO_SECRET_KEY_NAME }}"
           resources:
             requests:
               cpu: {{ .Values.resources.requests.cpu }}
