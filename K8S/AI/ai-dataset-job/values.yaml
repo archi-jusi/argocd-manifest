@@ -11,7 +11,7 @@ resources:
     memory: 512Mi
 
 env:
-  MINIO_ENDPOINT: "http://localhost:32000"
+  MINIO_ENDPOINT: "http://minio.minio.svc.cluster.local:9000"
   MINIO_SECRET_NAME: "minio-app-secret"
   # MINIO_ACCESS_KEY_NAME: "accessKey"
   # MINIO_SECRET_KEY_NAME: "secretKey"
