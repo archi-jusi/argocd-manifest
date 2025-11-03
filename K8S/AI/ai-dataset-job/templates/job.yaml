@@ -13,11 +13,20 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           env:
             - name: MINIO_ENDPOINT
-              value: "http://minio.minio.svc.cluster.local:9000"
+              value: {{ .Values.env.MINIO_ENDPOINT | quote }}
+
             - name: MINIO_ACCESS_KEY
-              value: "ofnzeroifezrooOIOIC"        # <-- hardcoded access key
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.env.MINIO_SECRET_NAME }}
+                  key: accessKey
+
             - name: MINIO_SECRET_KEY
-              value: "IOOFEOFNCazidzec2cezOLFESZS"  # <-- hardcoded secret key
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.env.MINIO_SECRET_NAME }}
+                  key: secretKey
+
           resources:
             requests:
               cpu: {{ .Values.resources.requests.cpu }}
