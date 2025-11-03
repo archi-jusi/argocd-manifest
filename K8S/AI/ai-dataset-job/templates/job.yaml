@@ -15,9 +15,9 @@ spec:
             - name: MINIO_ENDPOINT
               value: "{{ index .Values.env "MINIO_ENDPOINT" }}"
             - name: MINIO_ACCESS_KEY
-              value: "DACfPROq1u"        # <-- hardcoded access key
+              value: "ofnzeroifezrooOIOIC"        # <-- hardcoded access key
             - name: MINIO_SECRET_KEY
-              value: "CXruKx6KCjTPFo5U68br"  # <-- hardcoded secret key
+              value: "IOOFEOFNCazidzec2cezOLFESZS"  # <-- hardcoded secret key
           resources:
             requests:
               cpu: {{ .Values.resources.requests.cpu }}
