@@ -19,6 +19,9 @@ minio:
     - name: dataset
       policy: none
       purge: false
+    - name: models
+      policy: none
+      purge: false
   resources:
     requests:
       memory: 512Mi
@@ -36,6 +39,7 @@ minio:
       buckets:
         - ebooks
         - dataset
+        - models
   
   svcaccts:
     - user: apps-ai
@@ -46,5 +50,6 @@ minio:
           - resources:
               - 'arn:aws:s3:::ebooks/*'
               - 'arn:aws:s3:::dataset/*'
+              - 'arn:aws:s3:::models/*'
             actions:
               - "s3:*"
