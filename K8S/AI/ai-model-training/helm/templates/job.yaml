@@ -1,17 +1,17 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ include "model-train.fullname" . }}-{{ now | unixEpoch }}
+  name: {{ include "ai-model-training.fullname" . }}-{{ now | unixEpoch }}
   namespace: {{ .Release.Namespace }}
   labels:
-    app: {{ include "model-train.name" . }}
+    app: {{ include "ai-model-training.name" . }}
 spec:
   backoffLimit: {{ .Values.backoffLimit }}
   template:
     spec:
       restartPolicy: {{ .Values.restartPolicy }}
       containers:
-        - name: model-train
+        - name: ai-model-training
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
