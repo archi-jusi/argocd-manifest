@@ -1,0 +1,24 @@
+image:
+  repository: jusi13/ai-model-training
+  tag: latest
+  pullPolicy: IfNotPresent
+
+minio:
+  endpoint: "http://minio.minio.svc.cluster.local:9000"
+  secretName: minio-app-secret
+  datasetBucket: "dataset"
+  modelBucket: "models"
+
+model:
+  name: "gpt2_finetuned"
+
+resources:
+  requests:
+    cpu: "1"
+    memory: "4Gi"
+  limits:
+    cpu: "2"
+    memory: "8Gi"
+
+restartPolicy: Never
+backoffLimit: 1

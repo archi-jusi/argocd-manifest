@@ -1,0 +1,42 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "model-train.fullname" . }}-{{ now | unixEpoch }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: {{ include "model-train.name" . }}
+spec:
+  backoffLimit: {{ .Values.backoffLimit }}
+  template:
+    spec:
+      restartPolicy: {{ .Values.restartPolicy }}
+      containers:
+        - name: model-train
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: MINIO_ENDPOINT
+              value: "{{ .Values.minio.endpoint }}"
+            - name: DATASET_BUCKET
+              value: "{{ .Values.minio.datasetBucket }}"
+            - name: MODEL_BUCKET
+              value: "{{ .Values.minio.modelBucket }}"
+            - name: MODEL_NAME
+              value: "{{ .Values.model.name }}"
+            - name: MINIO_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.minio.secretName }}
+                  key: accessKey
+            - name: MINIO_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.minio.secretName }}
+                  key: secretKey
+          resources:
+            requests:
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.memory }}
+            limits:
+              cpu: {{ .Values.resources.limits.cpu }}
+              memory: {{ .Values.resources.limits.memory }}
