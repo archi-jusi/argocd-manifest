@@ -1,11 +1,12 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ include "ai-model-training.fullname" . }}-{{ now | unixEpoch }}
+  name: model-train-{{ .Values.image.tag | replace "." "-" | lower }}
   namespace: {{ .Release.Namespace }}
   labels:
     app: {{ include "ai-model-training.name" . }}
 spec:
+  ttlSecondsAfterFinished: 86400 #stop after 1 day
   backoffLimit: {{ .Values.backoffLimit }}
   template:
     spec:
