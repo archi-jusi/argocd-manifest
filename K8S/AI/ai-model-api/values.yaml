@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: jusi13/ai-model-api
-  tag: latest
+  tag: e7ab5c8
   pullPolicy: IfNotPresent
 
 service:
