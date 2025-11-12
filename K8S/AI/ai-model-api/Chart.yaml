@@ -1,0 +1,4 @@
+apiVersion: v2
+name: ai-model-api
+version: 0.1.0
+description: API for serving AI models trained on MinIO datasets

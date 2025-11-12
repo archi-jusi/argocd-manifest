@@ -4,7 +4,8 @@ metadata:
   name: model-train-{{ .Values.image.tag | replace "." "-" | lower }}
   namespace: {{ .Release.Namespace }}
   labels:
-    app: {{ include "ai-model-training.name" . }}
+    app: model-training
+    run-id: "{{ .Values.image.tag }}"
 spec:
   ttlSecondsAfterFinished: 86400 #stop after 1 day
   backoffLimit: {{ .Values.backoffLimit }}
