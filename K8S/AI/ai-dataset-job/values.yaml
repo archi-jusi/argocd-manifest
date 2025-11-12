@@ -1,6 +1,6 @@
 image:
   repository: jusi13/ai-dataset
-  tag: latest
+  tag: e7ab5c8
 
 resources:
   requests:
