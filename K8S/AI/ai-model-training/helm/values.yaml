@@ -10,14 +10,15 @@ minio:
   modelBucket: "models"
 
 model:
-  name: "gpt2_finetuned"
+  #name: "gpt2_finetuned"
+  name: "distilgpt2"
 
 resources:
   requests:
-    cpu: "1"
+    cpu: "2"
     memory: "4Gi"
   limits:
-    cpu: "2"
+    cpu: "4"
     memory: "8Gi"
 
 restartPolicy: Never
