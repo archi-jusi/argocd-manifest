@@ -36,9 +36,9 @@ spec:
             - name: MODEL_DIR
               value: {{ .Values.modelDir | quote }}
             - name: PYTHONUNBUFFERED
-              value: {{ .Values.env.PYTHONUNBUFFERED }}
+              value: {{ .Values.env.PYTHONUNBUFFERED | quote }}
             - name: PYTHONDONTWRITEBYTECODE
-              value: {{ .Values.env.PYTHONDONTWRITEBYTECODE }}
+              value: {{ .Values.env.PYTHONDONTWRITEBYTECODE | quote }}
           ports:
             - containerPort: 8000
           resources:
