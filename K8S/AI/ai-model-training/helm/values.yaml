@@ -1,6 +1,6 @@
 image:
   repository: jusi13/ai-model-training
-  tag: main-36
+  tag: main-37
   pullPolicy: IfNotPresent
 minio:
   endpoint: "http://minio.minio.svc.cluster.local:9000"
