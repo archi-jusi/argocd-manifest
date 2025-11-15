@@ -1,7 +1,7 @@
 replicaCount: 1
 image:
   repository: jusi13/ai-model-api
-  tag: main-8
+  tag: main-9
   pullPolicy: IfNotPresent
 service:
   type: ClusterIP
