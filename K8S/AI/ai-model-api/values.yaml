@@ -1,20 +1,16 @@
 replicaCount: 1
-
 image:
   repository: jusi13/ai-model-api
-  tag: e7ab5c8
+  tag: main-8
   pullPolicy: IfNotPresent
-
 service:
   type: ClusterIP
   port: 80
-
 ingress:
   enabled: false
   host: ai-model.local
   annotations: {}
   tls: []
-
 resources:
   limits:
     cpu: 1000m
@@ -22,15 +18,12 @@ resources:
   requests:
     cpu: 500m
     memory: 512Mi
-
 minio:
   endpoint: "http://minio.minio.svc.cluster.local:9000"
   bucket: "models"
   accessKeySecret: "minio-app-secret"
   secretKeySecret: "minio-app-secret"
-
 modelDir: "/tmp/model"
-
 env:
   PYTHONUNBUFFERED: "1"
   PYTHONDONTWRITEBYTECODE: "1"
